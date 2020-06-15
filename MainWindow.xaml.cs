@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrimerParcial_JoseLuis.UI.Registro;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,16 +14,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _1Parcial_JoseLuis
+namespace PrimerParcial_JoseLuis
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void rVehiculoMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rVehiculos rVehiculos = new rVehiculos();
+            rVehiculos.Show();
         }
     }
 }
