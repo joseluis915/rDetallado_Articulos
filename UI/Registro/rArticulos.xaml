@@ -8,7 +8,7 @@
         Title="REGISTRO ARTICULOS" Height="400" Width="450" Icon="/Resources/Agendar.png" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="Id Articulo" FontWeight="Bold" FontSize="18" Height="35"/>
+            <Label Content="Id Articulo" FontWeight="Bold"/>
             <!--——————————————————————————————————————————————[ BUSCAR ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Height="35">
                 <TextBox x:Name="IdVehiculoTextbox" Width="230" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
@@ -19,10 +19,18 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-            <!--——————————————————————————————————————————————[  ]——————————————————————————————————————————————-->
-
-            <!--——————————————————————————————————————————————[  ]——————————————————————————————————————————————-->
-
+            <!--——————————————————————————————————————————————[ DESCRIPCION ]——————————————————————————————————————————————-->
+            <Label Content="Descripcion"/>
+            <TextBox x:Name="DescripcionTextBox" Height="30"/>
+            <!--——————————————————————————————————————————————[ EXISTENCIA ]——————————————————————————————————————————————-->
+            <Label Content="Existencia"/>
+            <TextBox x:Name="ExistenciaTextBox" Height="30"/>
+            <!--——————————————————————————————————————————————[ COSTO ]——————————————————————————————————————————————-->
+            <Label Content="Costo"/>
+            <TextBox x:Name="CostoTextBox" Height="30"/>
+            <!--——————————————————————————————————————————————[ VALOR INVENTARIO ]——————————————————————————————————————————————-->
+            <Label Content="Valor Inventario"/>
+            <TextBox x:Name="ValorInventarioTextBox" Height="30"/>
             <!--——————————————————————————————————————————————[ BOTON NUEVO ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Height="35" Margin="0,15,0,0">
                 <Button x:Name="NuevoButton" Click="NuevoButton_Click" Width="120">

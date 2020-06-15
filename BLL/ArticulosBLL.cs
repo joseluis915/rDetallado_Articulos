@@ -12,6 +12,6 @@ namespace PrimerParcial_JoseLuis.BLL
 {
     public class ArticulosBLL
     {
-
+            
     }
 }
