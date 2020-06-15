@@ -10,7 +10,7 @@ using PrimerParcial_JoseLuis.Entidades;
 
 namespace PrimerParcial_JoseLuis.BLL
 {
-    public class VechiculosBLL
+    public class ArticulosBLL
     {
 
     }

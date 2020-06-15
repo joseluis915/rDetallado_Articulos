@@ -11,7 +11,7 @@
             <!--——————————————————————————————————————————————[ MENU ITEMS ]——————————————————————————————————————————————-->
             <Menu Height="24" FontSize="15">
                 <MenuItem Header="Registros">
-                    <MenuItem x:Name="rVehiculoMenuItem" Click="rVehiculoMenuItem_Click" Header="Registrar Vehiculo"/>
+                    <MenuItem x:Name="rArticulosMenuItem" Click="rVehiculoMenuItem_Click" Header="Registrar Articulo"/>
                 </MenuItem>
 
                 <MenuItem Header="Ayuda">
