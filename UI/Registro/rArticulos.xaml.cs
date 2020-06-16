@@ -44,22 +44,48 @@ namespace PrimerParcial_JoseLuis.UI.Registro
         //=====================================================[ BUSCAR ]=====================================================
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
+            var articulos = ArticulosBLL.Buscar(Utilidades.ToInt(IdArticuloTextbox.Text));
+            if (articulos != null)
+                this.Articulos = articulos;
+            else
+                this.Articulos = new Articulos();
 
+            this.DataContext = this.Articulos;
         }
         //=====================================================[ NUEVO ]=====================================================
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Limpiar();
         }
         //=====================================================[ GUARDAR ]=====================================================
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
+            {
+                if (!Validar())
+                    return;
 
+                var paso = ArticulosBLL.Guardar(Articulos);
+                if (paso)
+                {
+                    Limpiar();
+                    MessageBox.Show("Transaccion Exitosa", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                    MessageBox.Show("Transaccion Errada", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
         //=====================================================[ ELIMINAR ]=====================================================
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-
+            {
+                if(ArticulosBLL.Eliminar(Utilidades.ToInt(IdArticuloTextbox.Text)))
+                {
+                    Limpiar();
+                    MessageBox.Show("Registro Eliminado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                    MessageBox.Show("No se pudo eliminar", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }
