@@ -112,9 +112,9 @@ namespace PrimerParcial_JoseLuis.UI.Registro
         {
             try
             {
-                int a = int.Parse(ExistenciaTextBox.Text);
-                int b = int.Parse(CostoTextBox.Text);
-                ValorInventarioTextBox.Text = add(a, b).ToString();
+                double a = Convert.ToDouble(ExistenciaTextBox.Text);
+                double b = Convert.ToDouble(CostoTextBox.Text);
+                ValorInventarioTextBox.Text = "$ " + add(a, b).ToString();
             }
             catch
             {
