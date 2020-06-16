@@ -78,13 +78,47 @@ namespace PrimerParcial_JoseLuis.UI.Registro
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
             {
-                if(ArticulosBLL.Eliminar(Utilidades.ToInt(IdArticuloTextbox.Text)))
+                if (ArticulosBLL.Eliminar(Utilidades.ToInt(IdArticuloTextbox.Text)))
                 {
                     Limpiar();
                     MessageBox.Show("Registro Eliminado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                     MessageBox.Show("No se pudo eliminar", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        //=====================================================[ FORMULA (Existencia * Costo) ]=====================================================
+        public double add(double a, double b)
+        {
+            double c = a * b;
+            return c;
+        }
+        //=====================================================[ TEXT CHANGED ]=====================================================
+        private void ExistenciaTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                int a = int.Parse(ExistenciaTextBox.Text);
+                int b = int.Parse(CostoTextBox.Text);
+                ValorInventarioTextBox.Text = add(a, b).ToString();
+            }
+            catch
+            {
+                
+            }
+        }
+        private void CostoTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                int a = int.Parse(ExistenciaTextBox.Text);
+                int b = int.Parse(CostoTextBox.Text);
+                ValorInventarioTextBox.Text = add(a, b).ToString();
+            }
+            catch
+            {
+                
             }
         }
     }

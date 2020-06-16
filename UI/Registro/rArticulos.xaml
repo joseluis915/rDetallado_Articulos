@@ -8,14 +8,14 @@
         Title="REGISTRO ARTICULOS" Height="400" Width="450" Icon="/Resources/Agendar.png" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="Id Articulo" FontWeight="Bold"/>
+            <Label Content="Id Articulo" FontWeight="Bold" FontSize="16"/>
             <!--——————————————————————————————————————————————[ BUSCAR ]——————————————————————————————————————————————-->
-            <StackPanel Orientation="Horizontal" Height="30">
+            <StackPanel Orientation="Horizontal" Height="35">
                 <TextBox x:Name="IdArticuloTextbox" Text="{Binding IdArticulo}" Width="230" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
                 <Button x:Name="BuscarButton" Margin="50,0,0,0" Width="120" Click="BuscarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Source="/Resources/Buscar.png" />
-                        <Label Content="Buscar" FontSize="14" FontWeight="Bold"/>
+                        <Image Height="30" Source="/Resources/Buscar.png" />
+                        <Label Content="Buscar" FontSize="17" FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -24,13 +24,13 @@
             <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Height="30"/>
             <!--——————————————————————————————————————————————[ EXISTENCIA ]——————————————————————————————————————————————-->
             <Label Content="Existencia" FontWeight="Bold"/>
-            <TextBox x:Name="ExistenciaTextBox" Text="{Binding Existencia}" Height="30"/>
+            <TextBox x:Name="ExistenciaTextBox" Text="{Binding Existencia}" Height="30" TextChanged="ExistenciaTextBox_TextChanged"/>
             <!--——————————————————————————————————————————————[ COSTO ]——————————————————————————————————————————————-->
             <Label Content="Costo" FontWeight="Bold"/>
-            <TextBox x:Name="CostoTextBox" Text="{Binding Costo}" Height="30"/>
+            <TextBox x:Name="CostoTextBox" Text="{Binding Costo}" Height="30" TextChanged="CostoTextBox_TextChanged"/>
             <!--——————————————————————————————————————————————[ VALOR INVENTARIO ]——————————————————————————————————————————————-->
             <Label Content="Valor Inventario" FontWeight="Bold"/>
-            <TextBox x:Name="ValorInventarioTextBox" Text="{Binding ValorInventario}" Height="30"/>
+            <TextBox x:Name="ValorInventarioTextBox" Text="{Binding ValorInventario}" Height="30" IsReadOnly="True"/>
             <!--——————————————————————————————————————————————[ BOTON NUEVO ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Height="35" Margin="0,15,0,0">
                 <Button x:Name="NuevoButton" Click="NuevoButton_Click" Width="120">
