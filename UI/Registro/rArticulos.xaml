@@ -20,7 +20,7 @@
                 </Button>
             </StackPanel>
             <!--——————————————————————————————————————————————[ DESCRIPCION ]——————————————————————————————————————————————-->
-            <Label Content="Descripcion" FontWeight="Bold"/>
+            <Label x:Name="DescripcionLabel" Content="Descripcion" FontWeight="Bold"/>
             <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Height="30" VerticalContentAlignment="Center"/>
             <!--——————————————————————————————————————————————[ EXISTENCIA ]——————————————————————————————————————————————-->
             <Label x:Name="ExistenciaLabel" Content="Existencia" FontWeight="Bold"/>

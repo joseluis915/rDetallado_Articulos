@@ -64,6 +64,13 @@ namespace PrimerParcial_JoseLuis.UI.Registro
                 if (!Validar())
                     return;
 
+                if (DescripcionTextBox.Text.Trim() == String.Empty)
+                {
+                    MessageBox.Show($"El Campo ({DescripcionLabel.Content}) esta vacio.\n\nDescriba el articulo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    DescripcionTextBox.Focus();
+                    return;
+                }
+
                 var paso = ArticulosBLL.Guardar(Articulos);
                 if (paso)
                 {
@@ -116,7 +123,7 @@ namespace PrimerParcial_JoseLuis.UI.Registro
                 }
                 else
                 {
-                    MessageBox.Show($"El Campo ({ExistenciaLabel.Content}) esta vacio.\n\nDigite una edad", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show($"El Campo ({ExistenciaLabel.Content}) esta vacio.\n\nEscriba la existencia actual del articulo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
                     ExistenciaTextBox.Focus();
                 }
             }
@@ -139,7 +146,7 @@ namespace PrimerParcial_JoseLuis.UI.Registro
                 }
                 else
                 {
-                    MessageBox.Show($"El Campo ({CostoLabel.Content}) esta vacio.\n\nDigite una edad", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show($"El Campo ({CostoLabel.Content}) esta vacio.\n\nEscriba el costo del articulo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
                     CostoTextBox.Focus();
                 }
             }
