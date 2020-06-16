@@ -21,16 +21,16 @@
             </StackPanel>
             <!--——————————————————————————————————————————————[ DESCRIPCION ]——————————————————————————————————————————————-->
             <Label Content="Descripcion" FontWeight="Bold"/>
-            <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Height="30"/>
+            <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Height="30" VerticalContentAlignment="Center"/>
             <!--——————————————————————————————————————————————[ EXISTENCIA ]——————————————————————————————————————————————-->
             <Label Content="Existencia" FontWeight="Bold"/>
-            <TextBox x:Name="ExistenciaTextBox" Text="{Binding Existencia}" Height="30" TextChanged="ExistenciaTextBox_TextChanged"/>
+            <TextBox x:Name="ExistenciaTextBox" Text="{Binding Existencia}" Height="30" TextChanged="ExistenciaTextBox_TextChanged" VerticalContentAlignment="Center"/>
             <!--——————————————————————————————————————————————[ COSTO ]——————————————————————————————————————————————-->
             <Label Content="Costo" FontWeight="Bold"/>
-            <TextBox x:Name="CostoTextBox" Text="{Binding Costo}" Height="30" TextChanged="CostoTextBox_TextChanged"/>
+            <TextBox x:Name="CostoTextBox" Text="{Binding Costo}" Height="30" TextChanged="CostoTextBox_TextChanged" VerticalContentAlignment="Center"/>
             <!--——————————————————————————————————————————————[ VALOR INVENTARIO ]——————————————————————————————————————————————-->
             <Label Content="Valor Inventario" FontWeight="Bold"/>
-            <TextBox x:Name="ValorInventarioTextBox" Text="{Binding ValorInventario}" Height="30" IsReadOnly="True"/>
+            <TextBox x:Name="ValorInventarioTextBox" Height="30" IsReadOnly="True" VerticalContentAlignment="Center"/>
             <!--——————————————————————————————————————————————[ BOTON NUEVO ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Height="35" Margin="0,15,0,0">
                 <Button x:Name="NuevoButton" Click="NuevoButton_Click" Width="120">
