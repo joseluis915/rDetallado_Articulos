@@ -21,17 +21,17 @@ namespace PrimerParcial_JoseLuis.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Costo")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("Costo")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Existencia")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("Existencia")
+                        .HasColumnType("REAL");
 
-                    b.Property<int>("ValorInventario")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("ValorInventario")
+                        .HasColumnType("REAL");
 
                     b.HasKey("IdArticulo");
 

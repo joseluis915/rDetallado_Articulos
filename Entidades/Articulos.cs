@@ -12,7 +12,7 @@ namespace PrimerParcial_JoseLuis.Entidades
         [Key]
         public int IdArticulo { get; set; }
         public string Descripcion { get; set; }
-        public int Existencia { get; set; }
+        public int Existencia { get; set; } 
         public double Costo { get; set; }
         public double ValorInventario { get; set; }
     }

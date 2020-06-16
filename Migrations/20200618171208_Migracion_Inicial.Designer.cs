@@ -8,7 +8,7 @@ using PrimerParcial_JoseLuis.DAL;
 namespace PrimerParcial_JoseLuis.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200616005119_Migracion_Inicial")]
+    [Migration("20200618171208_Migracion_Inicial")]
     partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,17 +23,17 @@ namespace PrimerParcial_JoseLuis.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Costo")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("Costo")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Existencia")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("Existencia")
+                        .HasColumnType("REAL");
 
-                    b.Property<int>("ValorInventario")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("ValorInventario")
+                        .HasColumnType("REAL");
 
                     b.HasKey("IdArticulo");
 

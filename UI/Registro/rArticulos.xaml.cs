@@ -89,36 +89,65 @@ namespace PrimerParcial_JoseLuis.UI.Registro
         }
 
         //=====================================================[ FORMULA (Existencia * Costo) ]=====================================================
-        public double add(double a, double b)
+        public double resultado(int existencia, double costo)
         {
-            double c = a * b;
-            return c;
+            double formula = existencia * costo;
+            return formula;
         }
         //=====================================================[ TEXT CHANGED ]=====================================================
         private void ExistenciaTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
-                int a = int.Parse(ExistenciaTextBox.Text);
-                int b = int.Parse(CostoTextBox.Text);
-                ValorInventarioTextBox.Text = add(a, b).ToString();
+                if (ExistenciaTextBox.Text.Trim() != "")
+                {
+                    int existencia = int.Parse(ExistenciaTextBox.Text);
+
+                    if (CostoTextBox.Text != "")
+                    {
+                        double costo = Convert.ToDouble(CostoTextBox.Text.Replace('.', ','));
+                        ValorInventarioTextBox.Text = "$ " + resultado(existencia, costo);
+                    }
+                    else
+                    {
+                        double costo = 0;
+                        ValorInventarioTextBox.Text = "$ " + resultado(existencia, costo);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"El Campo ({ExistenciaLabel.Content}) esta vacio.\n\nDigite una edad", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    ExistenciaTextBox.Focus();
+                }
             }
             catch
             {
-                
+                MessageBox.Show($"El valor digitado en el campo ({ExistenciaLabel.Content}) no es un numero.\n\nPorfavor, digite un numero.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                ExistenciaTextBox.Text = "";
+                ExistenciaTextBox.Focus();
             }
         }
         private void CostoTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
-                double a = Convert.ToDouble(ExistenciaTextBox.Text);
-                double b = Convert.ToDouble(CostoTextBox.Text);
-                ValorInventarioTextBox.Text = "$ " + add(a, b).ToString();
+                if (CostoTextBox.Text.Trim() != "")
+                {
+                    int existencia = int.Parse(ExistenciaTextBox.Text);
+                    double costo = Convert.ToDouble(CostoTextBox.Text.Replace('.', ','));
+                    ValorInventarioTextBox.Text = "$ " + resultado(existencia, costo);
+                }
+                else
+                {
+                    MessageBox.Show($"El Campo ({CostoLabel.Content}) esta vacio.\n\nDigite una edad", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    CostoTextBox.Focus();
+                }
             }
             catch
             {
-                
+                MessageBox.Show($"El valor digitado en el campo ({CostoLabel.Content}) no es un numero.\n\nPorfavor, digite un numero.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                CostoTextBox.Text = "";
+                CostoTextBox.Focus();
             }
         }
     }
