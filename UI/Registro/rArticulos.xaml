@@ -10,26 +10,26 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Content="Id Articulo" FontWeight="Bold"/>
             <!--——————————————————————————————————————————————[ BUSCAR ]——————————————————————————————————————————————-->
-            <StackPanel Orientation="Horizontal" Height="35">
-                <TextBox x:Name="IdVehiculoTextbox" Width="230" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Height="30">
+                <TextBox x:Name="IdArticuloTextbox" Text="{Binding IdArticulo}" Width="230" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
                 <Button x:Name="BuscarButton" Margin="50,0,0,0" Width="120" Click="BuscarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="30" Source="/Resources/Buscar.png" />
-                        <Label Content="Buscar" FontSize="17" FontWeight="Bold"/>
+                        <Image Height="25" Source="/Resources/Buscar.png" />
+                        <Label Content="Buscar" FontSize="14" FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
             <!--——————————————————————————————————————————————[ DESCRIPCION ]——————————————————————————————————————————————-->
-            <Label Content="Descripcion"/>
+            <Label Content="Descripcion" FontWeight="Bold"/>
             <TextBox x:Name="DescripcionTextBox" Height="30"/>
             <!--——————————————————————————————————————————————[ EXISTENCIA ]——————————————————————————————————————————————-->
-            <Label Content="Existencia"/>
+            <Label Content="Existencia" FontWeight="Bold"/>
             <TextBox x:Name="ExistenciaTextBox" Height="30"/>
             <!--——————————————————————————————————————————————[ COSTO ]——————————————————————————————————————————————-->
-            <Label Content="Costo"/>
+            <Label Content="Costo" FontWeight="Bold"/>
             <TextBox x:Name="CostoTextBox" Height="30"/>
             <!--——————————————————————————————————————————————[ VALOR INVENTARIO ]——————————————————————————————————————————————-->
-            <Label Content="Valor Inventario"/>
+            <Label Content="Valor Inventario" FontWeight="Bold"/>
             <TextBox x:Name="ValorInventarioTextBox" Height="30"/>
             <!--——————————————————————————————————————————————[ BOTON NUEVO ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Height="35" Margin="0,15,0,0">

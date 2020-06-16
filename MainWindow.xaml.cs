@@ -23,7 +23,7 @@ namespace PrimerParcial_JoseLuis
             InitializeComponent();
         }
 
-        private void rVehiculoMenuItem_Click(object sender, RoutedEventArgs e)
+        private void rArticulosMenuItem_Click(object sender, RoutedEventArgs e)
         {
             rArticulos rVehiculos = new rArticulos();
             rVehiculos.Show();
