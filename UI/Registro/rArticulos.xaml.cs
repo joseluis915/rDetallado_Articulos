@@ -48,7 +48,8 @@ namespace PrimerParcial_JoseLuis.UI.Registro
             if (articulos != null)
                 this.Articulos = articulos;
             else
-                this.Articulos = new Articulos();
+                MessageBox.Show("El registro no fue encontrado.\n\nIntente buscar un registro existente o Cree uno nuevo.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            this.Articulos = new Articulos();
 
             this.DataContext = this.Articulos;
         }
