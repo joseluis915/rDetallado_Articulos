@@ -1,7 +1,7 @@
-﻿<Application x:Class="PrimerParcial_JoseLuis.App"
+﻿<Application x:Class="rDetallado_Articulos.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:PrimerParcial_JoseLuis"
+             xmlns:local="clr-namespace:rDetallado_Articulos"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

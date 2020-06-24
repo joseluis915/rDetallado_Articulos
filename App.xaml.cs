@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace PrimerParcial_JoseLuis
+namespace rDetallado_Articulos
 {
     /// <summary>
     /// Interaction logic for App.xaml

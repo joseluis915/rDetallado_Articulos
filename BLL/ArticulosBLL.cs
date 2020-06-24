@@ -5,10 +5,10 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Linq.Expressions;
-using PrimerParcial_JoseLuis.DAL;
-using PrimerParcial_JoseLuis.Entidades;
+using rDetallado_Articulos.DAL;
+using rDetallado_Articulos.Entidades;
 
-namespace PrimerParcial_JoseLuis.BLL
+namespace rDetallado_Articulos.BLL
 {
     public class ArticulosBLL
     {
@@ -47,6 +47,15 @@ namespace PrimerParcial_JoseLuis.BLL
             Contexto contexto = new Contexto();
             try
             {
+                //-------------------------------------------[ REGISTRO DETALLADO ]-------------------------------------------------
+                contexto.Database.ExecuteSqlRaw($"Delete FROM ArticulosDetalle Where TareaId={articulos.IdArticulo}");
+
+                foreach (var item in articulos.Detalle)
+                {
+                    contexto.Entry(item).State = EntityState.Added;
+                }
+                //------------------------------------------------------------------------------------------------------------------
+
                 contexto.Entry(articulos).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
@@ -87,11 +96,19 @@ namespace PrimerParcial_JoseLuis.BLL
         //=====================================================[ BUSCAR ]=====================================================
         public static Articulos Buscar(int id)
         {
+            //-------------------[ REGISTRO DETALLADO ] -------------------
+            Articulos articulos = new Articulos();
+            //-------------------------------------------------------------
             Contexto contexto = new Contexto();
-            Articulos articulos;
+            //Articulos articulos;
             try
             {
-                articulos = contexto.Articulos.Find(id);
+                //-------------------[ REGISTRO DETALLADO ] -------------------
+                articulos = contexto.Articulos.Include(x => x.Detalle)
+                    .Where(x => x.IdArticulo == id)
+                    .SingleOrDefault();
+                //-------------------------------------------------------------
+                //articulos = contexto.Articulos.Find(id);
             }
             catch (Exception)
             {

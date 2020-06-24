@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PrimerParcial_JoseLuis.DAL;
+using rDetallado_Articulos.DAL;
 
-namespace PrimerParcial_JoseLuis.Migrations
+namespace rDetallado_Articulos.Migrations
 {
     [DbContext(typeof(Contexto))]
     [Migration("20200618171208_Migracion_Inicial")]
@@ -17,7 +17,7 @@ namespace PrimerParcial_JoseLuis.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.5");
 
-            modelBuilder.Entity("PrimerParcial_JoseLuis.Entidades.Articulos", b =>
+            modelBuilder.Entity("rDetallado_Articulos.Entidades.Articulos", b =>
                 {
                     b.Property<int>("IdArticulo")
                         .ValueGeneratedOnAdd()

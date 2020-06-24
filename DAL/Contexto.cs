@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 //Añadí estos using
-using PrimerParcial_JoseLuis.Entidades;
+using rDetallado_Articulos.Entidades;
 using Microsoft.EntityFrameworkCore;
 
-namespace PrimerParcial_JoseLuis.DAL
+namespace rDetallado_Articulos.DAL
 {
     public class Contexto : DbContext
     {

@@ -10,11 +10,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 //Añadí estos using
-using PrimerParcial_JoseLuis.BLL;
-using PrimerParcial_JoseLuis.Entidades;
+using rDetallado_Articulos.BLL;
+using rDetallado_Articulos.Entidades;
 
 
-namespace PrimerParcial_JoseLuis.UI.Registro
+namespace rDetallado_Articulos.UI.Registro
 {
     public partial class rArticulos : Window
     {
@@ -22,6 +22,13 @@ namespace PrimerParcial_JoseLuis.UI.Registro
         public rArticulos()
         {
             InitializeComponent();
+            //Constructor
+            this.DataContext = Articulos;
+        }
+        //----------------------------------[ CARGAR - Registro Detallado ]----------------------------------
+        private void Cargar()
+        {
+            this.DataContext = null;
             this.DataContext = Articulos;
         }
         //=====================================================[ LIMPIAR ]=====================================================
@@ -44,14 +51,44 @@ namespace PrimerParcial_JoseLuis.UI.Registro
         //=====================================================[ BUSCAR ]=====================================================
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            var articulos = ArticulosBLL.Buscar(Utilidades.ToInt(IdArticuloTextbox.Text));
-            if (articulos != null)
-                this.Articulos = articulos;
-            else
-                MessageBox.Show("El registro no fue encontrado.\n\nIntente buscar un registro existente o Cree uno nuevo.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            this.Articulos = new Articulos();
+            //----------------------------------[ BUSCAR - Registro Detallado ]----------------------------------
+            Articulos encontrado = ArticulosBLL.Buscar(Articulos.IdArticulo);
 
-            this.DataContext = this.Articulos;
+            if (encontrado != null)
+            {
+                Articulos = encontrado;
+                Cargar();
+                MessageBox.Show("Articulo Encontrado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                
+                /*var articulos = ArticulosBLL.Buscar(Utilidades.ToInt(IdArticuloTextbox.Text));
+                if (articulos != null)
+                    this.Articulos = articulos;*/
+            }
+            else
+            {
+                Limpiar();
+                MessageBox.Show("El registro no fue encontrado.\n\nIntente buscar un registro existente o Cree uno nuevo.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+        //----------------------------------[ AGREGAR FILA - Registro Detallado ]----------------------------------
+        private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
+        {
+            var filaDetalle = new ArticulosDetalle(Articulos.IdArticulo, RequerimientoTextBox.Text, Convert.ToSingle(ValorTextBox.Text));
+
+            Articulos.Detalle.Add(filaDetalle);
+            Cargar();
+
+            RequerimientoTextBox.Clear();
+            ValorTextBox.Clear();
+        }
+        //----------------------------------[ REMOVER FILA - Registro Detallado ]----------------------------------
+        private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DetalleDataGrid.Items.Count > 1 && DetalleDataGrid.SelectedIndex < DetalleDataGrid.Items.Count - 1)
+            {
+                Articulos.Detalle.RemoveAt(DetalleDataGrid.SelectedIndex);
+                Cargar();
+            }
         }
         //=====================================================[ NUEVO ]=====================================================
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
