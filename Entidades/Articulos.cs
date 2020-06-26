@@ -21,6 +21,5 @@ namespace rDetallado_Articulos.Entidades
         //REGISTRO DETALLADO
         [ForeignKey("IdArticulo")]
         public List<ArticulosDetalle> Detalle { get; set; } = new List<ArticulosDetalle>();
-        public object ArticulosDetalle { get; internal set; }
     }
 }

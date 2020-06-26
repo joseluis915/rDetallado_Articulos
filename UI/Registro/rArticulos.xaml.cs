@@ -40,6 +40,32 @@ namespace rDetallado_Articulos.UI.Registro
         //=====================================================[ Validar ]=====================================================
         private bool Validar()
         {
+            if (DescripcionTextBox.Text.Trim() == String.Empty)
+            {
+                MessageBox.Show($"El Campo ({DescripcionLabel.Content}) esta vacio.\n\nDescriba el articulo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                DescripcionTextBox.Focus();
+            }
+
+            /*try
+            {
+                if (IdArticuloTextbox.Text.Trim() != "")
+                {
+                    MessageBox.Show($"El Id no fue encontrado.\n\nVerifique que existe o cree uno nuevo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    IdArticuloTextbox.Focus();
+                }
+                
+            }
+            catch
+            {
+                MessageBox.Show($"El Id no fue encontrado.\n\nVerifique que existe o cree uno nuevo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }*/
+
+            /*if (IdArticuloTextbox.Text.Trim() != IdArticulo)
+            {
+                MessageBox.Show($"El Id no fue encontrado.\n\nVerifique que existe o cree uno nuevo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                DescripcionTextBox.Focus();
+            }*/
+
             bool Validado = true;
             if (IdArticuloTextbox.Text.Length == 0)
             {
@@ -47,6 +73,7 @@ namespace rDetallado_Articulos.UI.Registro
                 MessageBox.Show("Transaccion Errada", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             return Validado;
+
         }
         //=====================================================[ BUSCAR ]=====================================================
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
@@ -67,7 +94,6 @@ namespace rDetallado_Articulos.UI.Registro
             else
             {
                 Limpiar();
-                MessageBox.Show("El registro no fue encontrado.\n\nIntente buscar un registro existente o Cree uno nuevo.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         //----------------------------------[ AGREGAR FILA - Registro Detallado ]----------------------------------
@@ -84,7 +110,7 @@ namespace rDetallado_Articulos.UI.Registro
         //----------------------------------[ REMOVER FILA - Registro Detallado ]----------------------------------
         private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DetalleDataGrid.Items.Count > 1 && DetalleDataGrid.SelectedIndex < DetalleDataGrid.Items.Count - 1)
+            if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
             {
                 Articulos.Detalle.RemoveAt(DetalleDataGrid.SelectedIndex);
                 Cargar();
@@ -101,13 +127,6 @@ namespace rDetallado_Articulos.UI.Registro
             {
                 if (!Validar())
                     return;
-
-                if (DescripcionTextBox.Text.Trim() == String.Empty)
-                {
-                    MessageBox.Show($"El Campo ({DescripcionLabel.Content}) esta vacio.\n\nDescriba el articulo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    DescripcionTextBox.Focus();
-                    return;
-                }
 
                 var paso = ArticulosBLL.Guardar(Articulos);
                 if (paso)
@@ -161,8 +180,8 @@ namespace rDetallado_Articulos.UI.Registro
                 }
                 else
                 {
-                    MessageBox.Show($"El Campo ({ExistenciaLabel.Content}) esta vacio.\n\nEscriba la existencia actual del articulo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    ExistenciaTextBox.Focus();
+                    /*MessageBox.Show($"El Campo ({ExistenciaLabel.Content}) esta vacio.\n\nEscriba la existencia actual del articulo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    ExistenciaTextBox.Focus();*/
                 }
             }
             catch
@@ -184,8 +203,8 @@ namespace rDetallado_Articulos.UI.Registro
                 }
                 else
                 {
-                    MessageBox.Show($"El Campo ({CostoLabel.Content}) esta vacio.\n\nEscriba el costo del articulo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    CostoTextBox.Focus();
+                    /*MessageBox.Show($"El Campo ({CostoLabel.Content}) esta vacio.\n\nEscriba el costo del articulo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    CostoTextBox.Focus();*/
                 }
             }
             catch

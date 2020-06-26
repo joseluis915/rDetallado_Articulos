@@ -8,7 +8,7 @@ using rDetallado_Articulos.DAL;
 namespace rDetallado_Articulos.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200618171208_Migracion_Inicial")]
+    [Migration("20200625222123_Migracion_Inicial")]
     partial class Migracion_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,8 +29,8 @@ namespace rDetallado_Articulos.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Existencia")
-                        .HasColumnType("REAL");
+                    b.Property<int>("Existencia")
+                        .HasColumnType("INTEGER");
 
                     b.Property<double>("ValorInventario")
                         .HasColumnType("REAL");
@@ -38,6 +38,37 @@ namespace rDetallado_Articulos.Migrations
                     b.HasKey("IdArticulo");
 
                     b.ToTable("Articulos");
+                });
+
+            modelBuilder.Entity("rDetallado_Articulos.Entidades.ArticulosDetalle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IdArticulo")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Requerimiento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<float>("Valor")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdArticulo");
+
+                    b.ToTable("ArticulosDetalle");
+                });
+
+            modelBuilder.Entity("rDetallado_Articulos.Entidades.ArticulosDetalle", b =>
+                {
+                    b.HasOne("rDetallado_Articulos.Entidades.Articulos", null)
+                        .WithMany("Detalle")
+                        .HasForeignKey("IdArticulo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
